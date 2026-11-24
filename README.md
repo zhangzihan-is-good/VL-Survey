@@ -1,6 +1,6 @@
 # VL-Survey
 
-The complete English system coding table for the survey is available in [Complete_system_coding.xlsx](Complete_system_coding.xlsx). A plain-language guide to every column, its possible values, and its applicability to the two survey branches is available in [Coding_table_guide.json](Coding_table_guide.json).
+The complete English system coding table for the survey is available in [Complete_system_coding.xlsx](Complete_system_coding.xlsx). [Read the column guide online](https://zhangzihan-is-good.github.io/VL-Survey/Coding_table_guide.html) for clear explanations of every column and its possible values. The [standalone HTML file](Coding_table_guide.html) can also be downloaded and opened offline.
 
 The workbook contains one worksheet with **564 systems and 124 fields**, with one system per row: 238 virtual models and 326 self-described digital twins. Each system has an article title, source identifiers, and a direct article link. Links prefer published journal or conference records, followed by arXiv and other preprints, with OpenReview used when these are unavailable.
 
