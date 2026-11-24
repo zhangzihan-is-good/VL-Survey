@@ -1,0 +1,3505 @@
+{
+  "schema_version": "1.0",
+  "title": "Guide to the complete system coding table",
+  "table_unit": "One included modeled system per row; a system can have several bibliographic records.",
+  "system_count": 564,
+  "field_count": 124,
+  "branch_applicability": "Each column can apply to virtual models and self-described digital twins. Conditional applicability depends on the model family or feature, rather than which branch supplied the record.",
+  "reading_notes": [
+    "Column names are the exact workbook headers. This file describes columns and values; it does not list the underlying papers or their individual coding records.",
+    "Semicolons separate multiple labels in fields marked multi_select. Do not sum multiple selections as if they were different systems.",
+    "Conventional missing-value terms within multiselect text have the same meaning regardless of capitalization.",
+    "A modeled scale requires its own computed biological states; an input, a named scale, or an evaluation endpoint does not establish that scale as modeled.",
+    "Final individualization, completed research loops, evidence, and credibility are separate concepts. A self-described digital twin is not automatically a completed feedback loop.",
+    "For credibility indicators, unqualified yes means documented support; qualified yes values retain their narrower meanings. An inclusive count can include qualified yes values, whereas a documented count includes only unqualified yes.",
+    "Not applicable in a numbered interface or omission column can mean an unused slot. It does not mean the entire system is irrelevant.",
+    "Not recorded is a table-completeness statement, not a conclusion about what the paper reports.",
+    "All fields can apply to both survey branches. The conditional rules identify the applicable model family or feature where needed."
+  ],
+  "shared_value_meanings": {
+    "no": "A negative coding decision for the stated criterion in the material assessed. It is not a missing value.",
+    "Not reported": "The article does not provide the information needed for this field. This does not mean no.",
+    "Not applicable": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies.",
+    "Not recorded": "No value or detail was entered in this table for this field. Do not infer that the article lacks the information.",
+    "None recorded": "No first-release ordering caveat was entered. This is used only in the first-channel uncertainty note.",
+    "none": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+  },
+  "columns": [
+    {
+      "field": "system_id",
+      "label": "System id",
+      "description": "Stable survey identifier for one modeled system. One row represents a system, not necessarily one paper.",
+      "value_type": "identifier",
+      "allowed_values": {
+        "pattern": "^(S|DS)[0-9]{3}$",
+        "examples": [
+          "S001",
+          "DS001"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "S and DS are survey roster prefixes. They are identifiers, not tests of individualization or a completed feedback loop."
+    },
+    {
+      "field": "system_name",
+      "label": "System name",
+      "description": "The name used to identify the modeled system in this survey.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Name of the modeled system"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "branch",
+      "label": "Branch",
+      "description": "The survey branch from which the system was included. Branch membership describes naming and screening scope, not whether a completed digital-twin feedback loop is demonstrated.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "self-described digital twins",
+            "meaning": "The system belongs to the branch whose own authors use a twin designation; it need not meet the survey criteria for a completed feedback loop."
+          },
+          {
+            "value": "virtual models",
+            "meaning": "The system belongs to the virtual-model branch of the survey."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_recorded_channel",
+      "label": "First recorded channel",
+      "description": "The earliest recorded publication channel among the versions identified for this system. It can differ from the article selected for the locating link.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Authorea",
+            "meaning": "The earliest recorded version was posted on Authorea."
+          },
+          {
+            "value": "OpenReview (including submission and workshop records)",
+            "meaning": "The earliest recorded version is an OpenReview submission or workshop record, not necessarily a peer-reviewed acceptance."
+          },
+          {
+            "value": "Preprints.org",
+            "meaning": "The earliest recorded version was posted on Preprints.org."
+          },
+          {
+            "value": "Research Square",
+            "meaning": "The earliest recorded version was posted on Research Square."
+          },
+          {
+            "value": "arXiv",
+            "meaning": "The earliest recorded version was posted on arXiv."
+          },
+          {
+            "value": "bioRxiv",
+            "meaning": "The earliest recorded version was posted on bioRxiv."
+          },
+          {
+            "value": "book chapter",
+            "meaning": "A book chapter is the earliest recorded channel."
+          },
+          {
+            "value": "journal",
+            "meaning": "A journal publication is the earliest recorded channel."
+          },
+          {
+            "value": "medRxiv",
+            "meaning": "The earliest recorded version was posted on medRxiv."
+          },
+          {
+            "value": "not uniquely determined",
+            "meaning": "The earliest channel cannot be uniquely ordered from the recorded dates; consult the date bounds and caveat field."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_recorded_channel_group",
+      "label": "First recorded channel group",
+      "description": "Broad publication type of the earliest recorded version.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "book chapter",
+            "meaning": "A book chapter is the earliest recorded channel."
+          },
+          {
+            "value": "conference or workshop",
+            "meaning": "The earliest recorded version is associated with a conference or workshop."
+          },
+          {
+            "value": "journal",
+            "meaning": "A journal publication is the earliest recorded channel."
+          },
+          {
+            "value": "preprint",
+            "meaning": "The earliest recorded version is a preprint."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_recorded_venue",
+      "label": "First recorded venue",
+      "description": "Journal, repository, conference, or other venue of the earliest recorded version.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Journal or repository name"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_recorded_date",
+      "label": "First recorded date",
+      "description": "Date or dates recorded for the earliest identified version. Partial dates and timestamps are retained; use the lower and upper bounds when precision differs.",
+      "value_type": "date_or_date_list",
+      "allowed_values": {
+        "pattern": "YYYY-MM-DD; the first recorded date may retain a year-only value, an ISO timestamp, or semicolon-separated candidate dates.",
+        "examples": [
+          "2025-03-14",
+          "2025-03-14T00:00:00Z"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_date_lower",
+      "label": "First date lower",
+      "description": "Earliest possible calendar date consistent with the recorded date information.",
+      "value_type": "date",
+      "allowed_values": {
+        "pattern": "YYYY-MM-DD; the first recorded date may retain a year-only value, an ISO timestamp, or semicolon-separated candidate dates.",
+        "examples": [
+          "2025-03-14"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_date_upper",
+      "label": "First date upper",
+      "description": "Latest possible calendar date consistent with the recorded date information. Equal bounds indicate an exact recorded day.",
+      "value_type": "date",
+      "allowed_values": {
+        "pattern": "YYYY-MM-DD; the first recorded date may retain a year-only value, an ISO timestamp, or semicolon-separated candidate dates.",
+        "examples": [
+          "2025-03-14"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "first_channel_uncertainty",
+      "label": "First-publication ordering caveat",
+      "description": "A note about coarse dates or tied versions that prevent a unique ordering of first-publication channels. This concerns publication metadata, not the scientific inclusion decision.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "None recorded",
+          "Earliest candidates include coarse or missing dates"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "None recorded means no publication-ordering caveat was entered; it does not independently prove exact dates."
+    },
+    {
+      "field": "name_source",
+      "label": "Name source",
+      "description": "Source of the name or label applied to the system.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "self-described in title or abstract",
+            "meaning": "The system authors use the designation in their title or abstract."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "self_designation",
+      "label": "Self designation",
+      "description": "The names or labels the source authors apply to their own model, simulator, or platform.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "virtual cell;digital twin"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "name_class",
+      "label": "Name class",
+      "description": "Category of the source designation.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Other",
+            "meaning": "Another author-used designation outside the separately listed naming categories."
+          },
+          {
+            "value": "digital X or in silico X",
+            "meaning": "A biological object is named with digital or in silico."
+          },
+          {
+            "value": "digital organism",
+            "meaning": "The authors describe a digital organism."
+          },
+          {
+            "value": "digital twin",
+            "meaning": "The authors use digital twin or an included twin synonym; this label does not establish a completed feedback loop."
+          },
+          {
+            "value": "foundation model",
+            "meaning": "The authors describe a foundation model."
+          },
+          {
+            "value": "virtual X name",
+            "meaning": "A scale or object is named with virtual, such as virtual cell or virtual organ."
+          },
+          {
+            "value": "world model",
+            "meaning": "The authors describe the system as a world model."
+          }
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "name_usage",
+      "label": "Name usage",
+      "description": "How the source uses the designation.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "aspirational use",
+            "meaning": "The designation describes an intended direction or aspiration."
+          },
+          {
+            "value": "category label",
+            "meaning": "The designation is used as a general category for the system."
+          },
+          {
+            "value": "proper name",
+            "meaning": "The designation is used as the specific name of a model or system."
+          },
+          {
+            "value": "software platform name",
+            "meaning": "The designation is the name of a reusable software platform."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "definition",
+      "label": "Definition",
+      "description": "Whether the source supplies or cites a definition.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "cited definition",
+            "meaning": "The authors cite an external definition."
+          },
+          {
+            "value": "no definition",
+            "meaning": "No definition of the designation is supplied or cited."
+          },
+          {
+            "value": "self-provided definition",
+            "meaning": "The authors provide their own definition of the designation."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "scale_named",
+      "label": "Scale named by the authors",
+      "description": "Biological scale referred to by the source designation.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "Not reported",
+          "cell",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue and organoid"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "scale",
+      "label": "Highest modeled scale",
+      "description": "Highest scale actually modeled, determined by the entity with its own modeled state variables.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue and organoid"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "process_main",
+      "label": "Process main",
+      "description": "The biological process underlying the main claim; if tied, the process emphasized in the title is used.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "process_categories",
+        "values_used_in_this_column": [
+          "Behavior and neural control",
+          "Development",
+          "Disease progression and treatment response",
+          "Metabolism",
+          "Physical and physiological function",
+          "Regulation and perturbation response",
+          "State representation and annotation",
+          "Tissue homeostasis and repair"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "process_other",
+      "label": "Process other",
+      "description": "Additional biological processes for which results are reported. Background, intended applications, and the main process are not repeated here.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "process_categories",
+        "values_used_in_this_column": [
+          "Behavior and neural control",
+          "Development",
+          "Disease progression and treatment response",
+          "Metabolism",
+          "Physical and physiological function",
+          "Regulation and perturbation response",
+          "State representation and annotation",
+          "Tissue homeostasis and repair",
+          "none"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "species",
+      "label": "Species",
+      "description": "Species represented by the model or used in its supporting biological data; multiple species may be listed.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Homo sapiens",
+          "Mus musculus"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "construction_system",
+      "label": "Construction system",
+      "description": "The biological preparation or data source used to construct, fit, or train the model.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "construction_and_test_sources",
+        "values_used_in_this_column": [
+          "Not reported",
+          "cell lines",
+          "clinical measurements in patients",
+          "ex vivo tissue",
+          "in vivo",
+          "not applicable (sequence or structure data)",
+          "organoids",
+          "organs-on-chips",
+          "primary cells",
+          "synthetic data only"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "test_system",
+      "label": "Test system",
+      "description": "The biological preparation, data source, or physical phantom used to evaluate the model. This may differ from the construction source.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "construction_and_test_sources",
+        "values_used_in_this_column": [
+          "Not reported",
+          "cell lines",
+          "clinical measurements in patients",
+          "ex vivo tissue",
+          "in vivo",
+          "nonbiological physical phantom",
+          "not applicable (sequence or structure data)",
+          "organoids",
+          "organs-on-chips",
+          "primary cells",
+          "synthetic data only"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "specific_object",
+      "label": "Specific object",
+      "description": "The particular biological entity, anatomical region, cell type, disease context, or other modeled object described in the source.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Patient-specific cardiac geometry"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "object_size",
+      "label": "Object size",
+      "description": "The reported physical extent, number of modeled entities, or model resolution. This is descriptive text, not a standardized sample-size measure.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Number of modeled cells and spatial resolution, with units"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "specificity_type",
+      "label": "Specificity type",
+      "description": "Whether the system is restricted to a biological type.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not reported",
+            "meaning": "The article does not provide the information needed for this field. This does not mean no."
+          },
+          {
+            "value": "generic",
+            "meaning": "The stated scope is not restricted to a particular biological type."
+          },
+          {
+            "value": "type-specific",
+            "meaning": "The model is restricted to a particular cell, tissue, organ, species, or other biological type."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "specificity_state",
+      "label": "Specificity state",
+      "description": "Whether the system is restricted to a biological state or condition.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "state-restricted",
+            "meaning": "The model is restricted to a particular state, such as a disease, treatment, or developmental condition."
+          },
+          {
+            "value": "unrestricted",
+            "meaning": "The stated scope is not restricted to a particular biological state or condition."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "data_modality",
+      "label": "Data modality",
+      "description": "Measurements or data modalities used by the model, such as transcriptomics, imaging, electrophysiology, or clinical records.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Transcriptomics; imaging"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "construction_sample_size",
+      "label": "Construction sample size",
+      "description": "Reported numbers and units of observations, samples, donors, or data sets used for construction, calibration, or training. Different units must not be added together.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Number of donors and cells, stated separately"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "population_of_models",
+      "label": "Population of models",
+      "description": "Whether parameter-varied model instances represent population variability without a one-to-one link to measured individuals. Multiple random runs of one fitted model do not alone qualify.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "model_type",
+      "label": "Model type",
+      "description": "How the system generates its predictions or simulated states.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "model_types",
+        "values_used_in_this_column": [
+          "LLM agent orchestration",
+          "data-driven",
+          "hybrid",
+          "mechanistic"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "algorithm_family",
+      "label": "Algorithm family",
+      "description": "Algorithms actually used to produce predictions or simulations in the system. Methods used only for preprocessing, visualization, or comparison are excluded.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Agent-based model",
+            "meaning": "Individual agents follow rules and interact to produce collective behavior."
+          },
+          {
+            "value": "Bayesian and simulation-based inference",
+            "meaning": "Parameters or predictions are inferred probabilistically, including inference based on simulations."
+          },
+          {
+            "value": "Boolean and rule-based models",
+            "meaning": "States change through Boolean logic or explicit rules."
+          },
+          {
+            "value": "Classical machine learning and statistical models",
+            "meaning": "Statistical or conventional machine-learning predictors outside the listed deep architectures."
+          },
+          {
+            "value": "Constraint-based model",
+            "meaning": "Predictions satisfy a defined set of constraints, such as metabolic balance constraints."
+          },
+          {
+            "value": "Diffusion or flow matching",
+            "meaning": "A generative model learned through diffusion or flow-matching methods."
+          },
+          {
+            "value": "Graph neural network",
+            "meaning": "A learned network that passes or aggregates information over graph nodes and edges."
+          },
+          {
+            "value": "Joint-embedding predictive architecture",
+            "meaning": "A model trained to predict one latent representation from another."
+          },
+          {
+            "value": "LLM agent",
+            "meaning": "An LLM coordinates tools or model components during operation."
+          },
+          {
+            "value": "Large language model",
+            "meaning": "An LLM directly contributes to prediction or simulation."
+          },
+          {
+            "value": "Neural ODE or neural operator",
+            "meaning": "A learned continuous-time dynamical model or a learned mapping between functions."
+          },
+          {
+            "value": "Not reported",
+            "meaning": "The article does not provide the information needed for this field. This does not mean no."
+          },
+          {
+            "value": "Optimal transport",
+            "meaning": "A method that maps or compares distributions through an optimal-transport objective."
+          },
+          {
+            "value": "Ordinary differential equations",
+            "meaning": "Time evolution is represented by ordinary differential equations."
+          },
+          {
+            "value": "Other",
+            "meaning": "Another reported algorithm not represented by the listed families."
+          },
+          {
+            "value": "Other deep network",
+            "meaning": "A deep neural network outside the separately listed architecture families."
+          },
+          {
+            "value": "Partial differential equations and finite elements",
+            "meaning": "Spatial fields are represented by partial differential equations or finite-element methods."
+          },
+          {
+            "value": "Particle or stochastic simulation",
+            "meaning": "A simulation explicitly represents particles or stochastic events."
+          },
+          {
+            "value": "Physics-informed neural network",
+            "meaning": "A neural network trained with explicit physical or governing-equation constraints."
+          },
+          {
+            "value": "Physiologically based pharmacokinetics and quantitative systems pharmacology",
+            "meaning": "A physiological or pharmacological compartment/pathway model represents drug disposition or effects."
+          },
+          {
+            "value": "Reinforcement learning",
+            "meaning": "A policy or decision model learned from a reward objective."
+          },
+          {
+            "value": "Transformer",
+            "meaning": "A network based on a Transformer architecture."
+          },
+          {
+            "value": "Variational autoencoder and other latent-variable generative models",
+            "meaning": "A generative model using learned latent variables, including variational autoencoders."
+          }
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "individualization_level",
+      "label": "Final individualization category",
+      "description": "The final full-text classification of how measurements and model-guided actions connect the model to a specific physical counterpart. A name containing twin does not determine the category.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "individualization_categories",
+        "values_used_in_this_column": [
+          "Generic model without a specific physical counterpart",
+          "One-time counterpart-specific calibration",
+          "One-time counterpart-specific input without individual parameter fitting",
+          "Repeated updating from the same counterpart without a demonstrated complete feedback loop",
+          "Repeated updating with executed model-guided action and return of post-action counterpart data"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "scales_modeled",
+      "label": "Scales modeled",
+      "description": "Scales with their own modeled state variables.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue",
+          "tissue and organoid"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "input_scales",
+      "label": "Input scales",
+      "description": "Scales supplying measurements or outputs used as model inputs or parameters without being modeled by this system.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule",
+          "molecule and pathway",
+          "none",
+          "organ",
+          "organism",
+          "tissue",
+          "tissue and organoid"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "endpoint_scales",
+      "label": "Endpoint scales",
+      "description": "Scales of the data or quantities used to compare with or evaluate model outputs.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule",
+          "molecule and pathway",
+          "none",
+          "organ",
+          "organism",
+          "tissue",
+          "tissue and organoid"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "highest_evidence_level",
+      "label": "Highest evidence level",
+      "description": "Highest evidence level among the system's reported tasks; this may concern an auxiliary task.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "evidence_categories",
+        "values_used_in_this_column": [
+          "Agreement with construction, calibration, or training data",
+          "Held-out prediction under the same conditions",
+          "No comparison with observed data or demonstration only",
+          "Prospective wet-lab or clinical validation",
+          "Retrospective prediction under unseen conditions"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "task_and_endpoint",
+      "label": "Task and endpoint",
+      "description": "The task and measured output supporting the highest reported evidence category.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Perturbation response evaluated against measured gene expression"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "highest_evidence_endpoint_scale",
+      "label": "Highest evidence endpoint scale",
+      "description": "Biological scale of the observations used in the highest-evidence task. This is an evaluation scale, not necessarily a modeled scale.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "cell",
+          "molecule",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue",
+          "tissue and organoid"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "type_of_unseen_condition",
+      "label": "Type of unseen condition",
+      "description": "What differs from construction or training conditions in a reported test, such as a perturbation, time, context, or individual.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "new context",
+            "meaning": "A different biological or measurement context is evaluated."
+          },
+          {
+            "value": "new context (new dataset, imaging platform, or unseen markers)",
+            "meaning": "A different dataset, imaging platform, or marker context is evaluated."
+          },
+          {
+            "value": "new context (new dataset, platform, cell type, tissue, or species)",
+            "meaning": "A different dataset, platform, biological type, or species is evaluated."
+          },
+          {
+            "value": "new individual (independent cohort)",
+            "meaning": "A new individual from a separate cohort is evaluated."
+          },
+          {
+            "value": "new individual (same cohort)",
+            "meaning": "A held-out individual from the same cohort is evaluated."
+          },
+          {
+            "value": "new perturbation",
+            "meaning": "A perturbation not used for fitting or training is evaluated."
+          },
+          {
+            "value": "new time point",
+            "meaning": "A time point outside the fitted or trained observations is evaluated."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          }
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "quantitative_or_qualitative",
+      "label": "Quantitative or qualitative",
+      "description": "Whether the comparison supporting the reported task evidence is numerical or qualitative.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "qualitative",
+            "meaning": "The comparison is described without a quantitative evaluation."
+          },
+          {
+            "value": "quantitative",
+            "meaning": "The comparison reports numerical evaluation."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "strength_of_e4_evidence",
+      "label": "Strength of e4 evidence",
+      "description": "Three categories describing how the source reports the temporal ordering and methods for E4 evidence.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "experimental methods described, timing not stated",
+            "meaning": "New experiments or measurements are described, but the temporal order of prediction and outcome is not explicitly stated."
+          },
+          {
+            "value": "narrative only",
+            "meaning": "Prospective use is described in narrative form without detailed experimental methods or clear temporal ordering."
+          },
+          {
+            "value": "prediction explicitly fixed before the outcome",
+            "meaning": "The source explicitly establishes that the prediction was fixed before the later measured outcome."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems whose highest evidence is prospective wet-lab or clinical validation.",
+      "missing_value_meaning": "Not applicable means the highest evidence category is not prospective wet-lab or clinical validation. This is distinct from a weaker reporting category within prospective evidence.",
+      "conditional_applicability": "Conditioned on highest_evidence_level, not branch. These are reporting categories, not general rankings of experimental success or quality."
+    },
+    {
+      "field": "core_claim_paraphrase",
+      "label": "Core claim paraphrase",
+      "description": "A concise English paraphrase of the principal capability used to justify the model or twin designation.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "The main predictive or simulation capability, paraphrased"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "core_claim_evidence_level",
+      "label": "Core claim evidence level",
+      "description": "Evidence level supporting the principal capability used to justify the paper's virtual model or twin designation.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "evidence_categories",
+        "values_used_in_this_column": [
+          "Agreement with construction, calibration, or training data",
+          "Held-out prediction under the same conditions",
+          "No comparison with observed data or demonstration only",
+          "Prospective wet-lab or clinical validation",
+          "Retrospective prediction under unseen conditions"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "core_claim_endpoint_scale",
+      "label": "Core claim endpoint scale",
+      "description": "Biological scale of the observations used to evaluate the principal claim. It need not equal the highest modeled scale.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue",
+          "tissue and organoid"
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "closed_loop_use_detail",
+      "label": "Closed loop use detail",
+      "description": "Reported form of completed closed-loop use.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "no",
+            "meaning": "A negative coding decision for the stated criterion in the material assessed. It is not a missing value."
+          },
+          {
+            "value": "yes (clinical decision)",
+            "meaning": "A completed research loop concerns a model-guided clinical decision."
+          },
+          {
+            "value": "yes (experiment selection)",
+            "meaning": "A completed research loop concerns model-guided selection of a new experiment."
+          },
+          {
+            "value": "yes (other, specified)",
+            "meaning": "Another completed research loop is described."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "form_of_the_loop",
+      "label": "Form of the loop",
+      "description": "A recorded subtype of a completed research loop. The three listed subtypes are not an exhaustive list of every possible experimental loop.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "Not recorded",
+            "meaning": "No value or detail was entered in this table for this field. Do not infer that the article lacks the information."
+          },
+          {
+            "value": "model revision after a discrepancy",
+            "meaning": "A discrepancy between prediction and observation leads to revision of the model."
+          },
+          {
+            "value": "real-time feedback control",
+            "meaning": "Model output controls an ongoing physical process with feedback during operation."
+          },
+          {
+            "value": "retraining or refitting on new data",
+            "meaning": "Newly obtained data are used to retrain or refit the model."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with completed closed-loop use.",
+      "missing_value_meaning": "Not applicable means no completed loop was coded. Not recorded means a loop is coded yes, but no supported assignment to the three listed subtypes was entered; the article may still describe the loop.",
+      "conditional_applicability": "Not recorded is possible when a completed loop is described but no supported choice among the listed subtypes was entered."
+    },
+    {
+      "field": "comparison_with_a_simple_baseline",
+      "label": "Comparison with a simple baseline",
+      "description": "Whether the paper compares this system with a simpler alternative or a reduced version of its own method under a comparable task.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "simple_baselines",
+      "label": "Simple baselines",
+      "description": "Names or descriptions of the simpler or reduced models used as comparators.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Reduced model; constant predictor"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Read with comparison_with_a_simple_baseline. No comparison does not mean that the model would perform poorly."
+    },
+    {
+      "field": "simple_baseline_result",
+      "label": "Simple baseline result",
+      "description": "Direction of performance relative to the listed simple baselines, as reported for the relevant comparisons.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "comparison_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "better",
+          "comparable",
+          "mixed",
+          "not stated in the main text",
+          "worse"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Read with comparison_with_a_simple_baseline. No comparison does not mean that the model would perform poorly."
+    },
+    {
+      "field": "comparison_with_existing_methods",
+      "label": "Comparison with existing methods",
+      "description": "Whether the paper compares the system with separately established methods on a comparable task.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "Not reported",
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "existing_methods",
+      "label": "Existing methods",
+      "description": "Names or descriptions of established external methods used as comparators.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Names of externally established methods"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Read with comparison_with_existing_methods. A missing or absent comparison is distinct from a negative comparative result."
+    },
+    {
+      "field": "existing_methods_result",
+      "label": "Existing methods result",
+      "description": "Direction of performance relative to the listed established methods. The same comparison is not counted again as a simple-baseline comparison.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "comparison_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "better",
+          "comparable",
+          "mixed",
+          "not stated in the main text",
+          "worse"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Read with comparison_with_existing_methods. A missing or absent comparison is distinct from a negative comparative result."
+    },
+    {
+      "field": "data_publicly_available",
+      "label": "Data publicly available",
+      "description": "Whether the paper reports public access to the data needed for the system. Public access is distinct from access on request.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "public_availability",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "Not reported",
+          "no",
+          "partial",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "code_publicly_available",
+      "label": "Code publicly available",
+      "description": "Whether the paper reports public access to the system code.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "public_availability",
+        "values_used_in_this_column": [
+          "Not reported",
+          "no",
+          "partial",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "model_weights_publicly_available",
+      "label": "Model weights publicly available",
+      "description": "Whether the paper reports public access to trained model weights or corresponding learned parameters. This may not apply to a model without learned weights.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "public_availability",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "Not reported",
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Applies when the system has learned weights or comparable trained parameters to release; a model without such weights can be Not applicable."
+    },
+    {
+      "field": "uncertainty_broad_categories",
+      "label": "Uncertainty broad categories",
+      "description": "Broad categories of represented uncertainty, stochasticity, or sensitivity to model choices. Performance-metric confidence intervals alone and variation between different individuals alone do not qualify.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "intrinsic stochasticity",
+            "meaning": "Randomness is represented as part of the modeled process."
+          },
+          {
+            "value": "measurement-noise model",
+            "meaning": "Measurement or observation noise is explicitly represented."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          },
+          {
+            "value": "parameter or prediction uncertainty",
+            "meaning": "Uncertainty or sensitivity concerns model parameters, outputs, hyperparameters, structure, algorithm choices, or component ablations."
+          }
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "scale_claim_status_cell",
+      "label": "Author claim at cell scale",
+      "description": "Whether the authors describe cell coverage as current or envisioned. A naming or scope claim is separate from an actually computed biological state.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "scale_claim_status",
+        "values_used_in_this_column": [
+          "Not recorded",
+          "current",
+          "envisioned"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means no status for a claim at this scale was entered. It does not mean the scale is absent from the model."
+    },
+    {
+      "field": "scale_claim_status_molecule_and_pathway",
+      "label": "Author claim at molecule and pathway scale",
+      "description": "Whether the authors describe molecule and pathway coverage as current or envisioned. A naming or scope claim is separate from an actually computed biological state.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "scale_claim_status",
+        "values_used_in_this_column": [
+          "Not recorded",
+          "current",
+          "envisioned"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means no status for a claim at this scale was entered. It does not mean the scale is absent from the model."
+    },
+    {
+      "field": "scale_claim_status_tissue_and_organoid",
+      "label": "Author claim at tissue and organoid scale",
+      "description": "Whether the authors describe tissue and organoid coverage as current or envisioned. A naming or scope claim is separate from an actually computed biological state.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "scale_claim_status",
+        "values_used_in_this_column": [
+          "Not recorded",
+          "current",
+          "envisioned"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means no status for a claim at this scale was entered. It does not mean the scale is absent from the model."
+    },
+    {
+      "field": "scale_claim_status_organ",
+      "label": "Author claim at organ scale",
+      "description": "Whether the authors describe organ coverage as current or envisioned. A naming or scope claim is separate from an actually computed biological state.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "scale_claim_status",
+        "values_used_in_this_column": [
+          "Not recorded",
+          "current",
+          "envisioned"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means no status for a claim at this scale was entered. It does not mean the scale is absent from the model."
+    },
+    {
+      "field": "scale_claim_status_organism",
+      "label": "Author claim at organism scale",
+      "description": "Whether the authors describe organism coverage as current or envisioned. A naming or scope claim is separate from an actually computed biological state.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "scale_claim_status",
+        "values_used_in_this_column": [
+          "Not recorded",
+          "current",
+          "envisioned"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means no status for a claim at this scale was entered. It does not mean the scale is absent from the model."
+    },
+    {
+      "field": "cross_scale_interface_i1",
+      "label": "Cross-scale link 1",
+      "description": "Description of recorded cross-scale link 1. This is a numbered slot, not a fixed biological scale pair. Its fields identify the mechanism, kinds of endpoints, direction, and source/target scales.",
+      "value_type": "structured_text",
+      "allowed_values": {
+        "value_set": "cross_scale_link_format",
+        "empty_slot_value": "Not applicable"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "This slot is populated only when a corresponding cross-scale link was recorded. Only implemented model-to-model links contribute to the implemented-interface summaries."
+    },
+    {
+      "field": "interface_test_i1",
+      "label": "Test of cross-scale link 1",
+      "description": "Test evidence for the link in cross_scale_interface_i1. Assess this entry with its own link; tests of other components do not automatically validate it.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "interface_test_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "partial",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "Read with cross_scale_interface_i1; an unused slot is Not applicable."
+    },
+    {
+      "field": "cross_scale_interface_i2",
+      "label": "Cross-scale link 2",
+      "description": "Description of recorded cross-scale link 2. This is a numbered slot, not a fixed biological scale pair. Its fields identify the mechanism, kinds of endpoints, direction, and source/target scales.",
+      "value_type": "structured_text",
+      "allowed_values": {
+        "value_set": "cross_scale_link_format",
+        "empty_slot_value": "Not applicable"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "This slot is populated only when a corresponding cross-scale link was recorded. Only implemented model-to-model links contribute to the implemented-interface summaries."
+    },
+    {
+      "field": "interface_test_i2",
+      "label": "Test of cross-scale link 2",
+      "description": "Test evidence for the link in cross_scale_interface_i2. Assess this entry with its own link; tests of other components do not automatically validate it.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "interface_test_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "partial",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "Read with cross_scale_interface_i2; an unused slot is Not applicable."
+    },
+    {
+      "field": "cross_scale_interface_i3",
+      "label": "Cross-scale link 3",
+      "description": "Description of recorded cross-scale link 3. This is a numbered slot, not a fixed biological scale pair. Its fields identify the mechanism, kinds of endpoints, direction, and source/target scales.",
+      "value_type": "structured_text",
+      "allowed_values": {
+        "value_set": "cross_scale_link_format",
+        "empty_slot_value": "Not applicable"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "This slot is populated only when a corresponding cross-scale link was recorded. Only implemented model-to-model links contribute to the implemented-interface summaries."
+    },
+    {
+      "field": "interface_test_i3",
+      "label": "Test of cross-scale link 3",
+      "description": "Test evidence for the link in cross_scale_interface_i3. Assess this entry with its own link; tests of other components do not automatically validate it.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "interface_test_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "partial",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "Read with cross_scale_interface_i3; an unused slot is Not applicable."
+    },
+    {
+      "field": "cross_scale_interface_i4",
+      "label": "Cross-scale link 4",
+      "description": "Description of recorded cross-scale link 4. This is a numbered slot, not a fixed biological scale pair. Its fields identify the mechanism, kinds of endpoints, direction, and source/target scales.",
+      "value_type": "structured_text",
+      "allowed_values": {
+        "value_set": "cross_scale_link_format",
+        "empty_slot_value": "Not applicable"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "This slot is populated only when a corresponding cross-scale link was recorded. Only implemented model-to-model links contribute to the implemented-interface summaries."
+    },
+    {
+      "field": "interface_test_i4",
+      "label": "Test of cross-scale link 4",
+      "description": "Test evidence for the link in cross_scale_interface_i4. Assess this entry with its own link; tests of other components do not automatically validate it.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "interface_test_result",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "partial"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable can indicate that this numbered interface slot is unused. In a populated test slot, read it as the recorded test applicability, not a failed test.",
+      "conditional_applicability": "Read with cross_scale_interface_i4; an unused slot is Not applicable."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u0",
+      "label": "No declared omission marker",
+      "description": "A marker indicating that no author-declared omission was recorded. It does not claim completeness.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "not stated by the authors or Not applicable."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means this numbered omission slot is unused. It does not mean the model has no limitations or that the omitted component is scientifically irrelevant.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u1",
+      "label": "Author-declared omission 1",
+      "description": "The 1st recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u2",
+      "label": "Author-declared omission 2",
+      "description": "The 2nd recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u3",
+      "label": "Author-declared omission 3",
+      "description": "The 3rd recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u4",
+      "label": "Author-declared omission 4",
+      "description": "The 4th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u5",
+      "label": "Author-declared omission 5",
+      "description": "The 5th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u6",
+      "label": "Author-declared omission 6",
+      "description": "The 6th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u7",
+      "label": "Author-declared omission 7",
+      "description": "The 7th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u8",
+      "label": "Author-declared omission 8",
+      "description": "The 8th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u9",
+      "label": "Author-declared omission 9",
+      "description": "The 9th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "author_declared_unmodeled_component_u10",
+      "label": "Author-declared omission 10",
+      "description": "The 10th recorded omission or unmodeled component explicitly stated by the authors. Numbered slots are separate statements, not named omission categories. Do not treat the coder's own criticism as an author declaration.",
+      "value_type": "text",
+      "allowed_values": {
+        "value_set": "author_declared_omission_text"
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable means an unused statement slot; it does not establish model completeness.",
+      "conditional_applicability": "A numbered statement slot is used only when that statement is present. The marker slot is used only for the recorded absence of an author-declared omission."
+    },
+    {
+      "field": "loop_counterpart",
+      "label": "Loop counterpart",
+      "description": "Physical counterpart of the model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "a class of counterparts",
+            "meaning": "The model stands for a type or population, rather than one particular object."
+          },
+          {
+            "value": "a specific individual or sample",
+            "meaning": "The model stands for one particular person, animal, organ, culture, or other physical sample."
+          },
+          {
+            "value": "none (generic model)",
+            "meaning": "There is no specific physical object represented as an individual counterpart."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_data_from_counterpart",
+      "label": "Loop data from counterpart",
+      "description": "Data obtained from the physical counterpart.",
+      "value_type": "multi_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "Other",
+            "meaning": "Another reported kind of data from the physical counterpart."
+          },
+          {
+            "value": "clinical tests and medical records",
+            "meaning": "Clinical tests or recorded clinical information provide counterpart observations."
+          },
+          {
+            "value": "electrophysiological or physiological signals",
+            "meaning": "Electrical or other physiological signals provide counterpart observations."
+          },
+          {
+            "value": "imaging",
+            "meaning": "Images provide counterpart observations."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          },
+          {
+            "value": "omics",
+            "meaning": "Molecular profiling measurements provide counterpart observations."
+          },
+          {
+            "value": "other",
+            "meaning": "Another reported kind of data from the physical counterpart."
+          },
+          {
+            "value": "wearable or continuous monitoring",
+            "meaning": "Wearable devices or other continuous monitoring provide counterpart observations."
+          }
+        ],
+        "separator": ";",
+        "combination_rule": "One or more listed values separated by semicolons; order does not imply rank."
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_data_entry",
+      "label": "Loop data entry",
+      "description": "How data from the counterpart enter the model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "does not enter the model",
+            "meaning": "Counterpart measurements are not used to update or initialize this model as a counterpart-specific instance."
+          },
+          {
+            "value": "one-time calibration",
+            "meaning": "Counterpart data fit parameters, geometry, or initial conditions once."
+          },
+          {
+            "value": "one-time input",
+            "meaning": "Counterpart data enter once without fitting individual parameters."
+          },
+          {
+            "value": "repeated updating",
+            "meaning": "New data from the same counterpart enter on at least two occasions and change model state or parameters; retrospective replay may qualify."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_update_rhythm",
+      "label": "Loop update rhythm",
+      "description": "Rhythm of repeated model updating.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "real-time or near-real-time",
+            "meaning": "Measurements update the model during or shortly after acquisition."
+          },
+          {
+            "value": "retrospective replay",
+            "meaning": "Previously collected measurements are fed to the model in time order."
+          },
+          {
+            "value": "scheduled",
+            "meaning": "New measurements update the model at planned intervals."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with repeated updating from the same counterpart.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "If loop_data_entry is not repeated updating, the rhythm or automation question is Not applicable, unless an explicit source-specific assessment was retained.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_update_automation",
+      "label": "Loop update automation",
+      "description": "Whether repeated updating is automatic.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "automatic",
+            "meaning": "Updating is triggered automatically."
+          },
+          {
+            "value": "manually triggered",
+            "meaning": "A person initiates the update."
+          },
+          {
+            "value": "not stated",
+            "meaning": "The paper does not state this detail."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with repeated updating from the same counterpart.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "If loop_data_entry is not repeated updating, the rhythm or automation question is Not applicable, unless an explicit source-specific assessment was retained.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_output_return",
+      "label": "Loop output return",
+      "description": "How model output acts on the same physical counterpart.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "Not reported",
+            "meaning": "The article does not provide the information needed for this field. This does not mean no."
+          },
+          {
+            "value": "applied only in silico",
+            "meaning": "Model output changes a simulation, without an actual action on the physical counterpart."
+          },
+          {
+            "value": "automatically executed",
+            "meaning": "Output is executed automatically on the physical counterpart."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          },
+          {
+            "value": "recommendations provided for human execution",
+            "meaning": "Output is provided to a person who may act on the physical counterpart. This label alone does not establish actual execution or a complete feedback cycle."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_use_setting",
+      "label": "Loop use setting",
+      "description": "Highest reported use setting for the counterpart-linked model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "prospective intervention",
+            "meaning": "A new intervention is guided by the model and subsequently observed."
+          },
+          {
+            "value": "prospective observation",
+            "meaning": "Prediction precedes later measurements, without a model-guided intervention."
+          },
+          {
+            "value": "randomized controlled trial",
+            "meaning": "Model-guided use is evaluated in a randomized controlled study."
+          },
+          {
+            "value": "retrospective",
+            "meaning": "Use or evaluation relies on already existing measurements."
+          },
+          {
+            "value": "simulation only",
+            "meaning": "Use is demonstrated in simulation without observed data from the represented counterpart."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_outcome_test",
+      "label": "Loop outcome test",
+      "description": "Whether prediction is compared with later measurements from the same physical counterpart.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          },
+          {
+            "value": "present, prospective",
+            "meaning": "Prediction is compared with later measurements newly obtained after prediction."
+          },
+          {
+            "value": "present, retrospective",
+            "meaning": "Prediction is compared with later-in-sequence measurements that were already available."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_latency",
+      "label": "Loop latency",
+      "description": "Reported timing or delay, with its units and scope. A reported inference time may cover only part of the pipeline; it is not necessarily the time from data acquisition to a clinically usable result.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "2 seconds",
+          "not stated"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "loop_credibility_standards",
+      "label": "Loop credibility standards",
+      "description": "Whether credibility, regulatory, or reporting standards are mentioned and explained.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Not applicable",
+            "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+          },
+          {
+            "value": "Not reported",
+            "meaning": "The article does not provide the information needed for this field. This does not mean no."
+          },
+          {
+            "value": "mentioned without an explanation of adherence",
+            "meaning": "A standard is mentioned, but how the work follows it is not explained."
+          },
+          {
+            "value": "none",
+            "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+          },
+          {
+            "value": "the standard followed is specified",
+            "meaning": "The paper names the standard and describes adherence."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "See counterpart_loop_branch_scope below."
+    },
+    {
+      "field": "credibility_a1",
+      "label": "Parameter sensitivity",
+      "description": "Whether parameter sensitivity is examined for a mechanistic or hybrid model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)",
+          "yes (qualitative only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Mechanistic and hybrid models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. An explicitly inapplicable sub-question may also be Not applicable within the relevant model family.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_a2",
+      "label": "Parameter identifiability or uncertainty",
+      "description": "Whether parameter identifiability or parameter uncertainty is examined for a mechanistic or hybrid model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "Not reported",
+          "no",
+          "yes",
+          "yes (claim only)",
+          "yes (qualitative only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Mechanistic and hybrid models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. An explicitly inapplicable sub-question may also be Not applicable within the relevant model family.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_a3",
+      "label": "Numerical verification",
+      "description": "Whether numerical correctness is checked through mesh or time-step convergence, an analytical solution, or a numerical benchmark. Agreement with biological data alone is not numerical verification.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)",
+          "yes (qualitative only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Mechanistic and hybrid models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. An explicitly inapplicable sub-question may also be Not applicable within the relevant model family.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_a4",
+      "label": "Adherence to a named standard",
+      "description": "Whether the paper states adherence to a named credibility, modeling, regulatory, or reporting standard.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Mechanistic and hybrid models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. An explicitly inapplicable sub-question may also be Not applicable within the relevant model family.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_b1",
+      "label": "Variation across training runs",
+      "description": "Whether variation across training seeds or repeated training runs is reported for a data-driven model.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Data-driven models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. LLM agent orchestration is not treated as the data-driven group for these indicators.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_b2",
+      "label": "Out-of-distribution testing",
+      "description": "Whether a data-driven model is tested on an external data set or outside the training distribution.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)",
+          "yes (qualitative only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Data-driven models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. LLM agent orchestration is not treated as the data-driven group for these indicators.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "credibility_b3",
+      "label": "Hyperparameter, architecture, or component sensitivity",
+      "description": "Whether a data-driven model tests its own hyperparameters, architecture, structural choices, or component ablations.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "credibility_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes",
+          "yes (claim only)",
+          "yes (qualitative only)"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Data-driven models, in either branch.",
+      "missing_value_meaning": "Not applicable identifies an inapplicable model family or sub-question. Other missing labels and qualified yes values retain their shared meanings.",
+      "conditional_applicability": "Conditioned on model_type, not survey branch. LLM agent orchestration is not treated as the data-driven group for these indicators.",
+      "branch_notes": "Applicability follows model_type, not the branch label."
+    },
+    {
+      "field": "uncertainty_narrow_status",
+      "label": "Uncertainty narrow status",
+      "description": "Whether model uncertainty is explicitly represented through an observation/noise model, parameter distribution, stochastic/output distribution, or predictive uncertainty. Sensitivity analysis alone and confidence intervals for evaluation metrics do not qualify.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "uncertainty_narrow_forms",
+      "label": "Uncertainty narrow forms",
+      "description": "Free-text descriptions of uncertainty mechanisms recorded during assessment. These descriptions are not the final yes/no decision; a described candidate mechanism may have been judged insufficient, so consult uncertainty_narrow_status.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Parameter posterior distribution",
+          "Not recorded",
+          "Not applicable"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not applicable fills an empty description when the final narrow status is no. Not recorded fills an empty description when the final narrow status is yes. Neither changes that status; nonempty descriptions are also not status labels.",
+      "conditional_applicability": "Always interpret together with uncertainty_narrow_status; a nonempty mechanism description is not an affirmative status."
+    },
+    {
+      "field": "sensitivity_analysis_only",
+      "label": "Sensitivity analysis only",
+      "description": "Whether the recorded uncertainty treatment consists only of sensitivity or ablation analysis and does not meet the narrow uncertainty definition.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "implemented_model_to_model_interface",
+      "label": "Implemented model to model interface",
+      "description": "Whether at least one implemented interface connects two biological scales that each have their own computed states. A measured input or an evaluation endpoint alone is not a second modeled scale.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "highest_implemented_interface_code",
+      "label": "Selected implemented interface category",
+      "description": "One selected type among the implemented model-to-model links. When several types occur, the fixed selection order is parameter passing, representation reuse, joint training or solution, then LLM agent orchestration. This convention is not a quality ranking.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "Joint training or joint solution",
+            "meaning": "The modeled scales are trained or solved together."
+          },
+          {
+            "value": "Parameter or boundary-condition passing",
+            "meaning": "Parameters or boundary conditions computed by one modeled scale are passed to another."
+          },
+          {
+            "value": "Representation reuse",
+            "meaning": "A representation from one modeled scale is reused by another."
+          },
+          {
+            "value": "none",
+            "meaning": "No implemented model-to-model interface was recorded."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "strict_interface_test_passed",
+      "label": "Strict interface test passed",
+      "description": "Whether at least one implemented model-to-model interface passed the strict interface test.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with at least one implemented model-to-model interface.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "No implemented model-to-model interface makes this summary Not applicable, not a failed test."
+    },
+    {
+      "field": "partial_interface_test_only",
+      "label": "Partial interface test only",
+      "description": "Whether an implemented model-to-model interface has qualifying partial test evidence, but none meets the full strict criterion. A partial test does not satisfy all required quantitative, comparison-design, or independence conditions. This is a test-evidence category, not partial coding of a system.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with at least one implemented model-to-model interface.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "No implemented model-to-model interface makes this summary Not applicable, not a failed test."
+    },
+    {
+      "field": "strict_or_partial_interface_test_passed",
+      "label": "Strict or partial interface test passed",
+      "description": "Whether any implemented model-to-model interface has either a full strict test or qualifying partial test evidence. Partial evidence does not establish that all strict requirements were met.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "Not applicable",
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "Systems with at least one implemented model-to-model interface.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "No implemented model-to-model interface makes this summary Not applicable, not a failed test."
+    },
+    {
+      "field": "implemented_interface_count",
+      "label": "Implemented interface count",
+      "description": "Number of implemented model-to-model interface entries for this system. This counts interface items, not systems or all input and endpoint links.",
+      "value_type": "integer",
+      "allowed_values": {
+        "minimum": 0,
+        "examples": [
+          0,
+          1,
+          2
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "unknown_interface_test_count",
+      "label": "Unclassified interface-test count",
+      "description": "Number of implemented model-to-model interface entries whose test classification was not determined. A value of zero means none of these entries has that status; it is not the number of untested interfaces.",
+      "value_type": "integer",
+      "allowed_values": {
+        "minimum": 0,
+        "examples": [
+          0,
+          1,
+          2
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "closed_loop_use",
+      "label": "Closed loop use",
+      "description": "Whether at least one executed model-guided physical action is followed by measurements that return to the model. A proposed loop or a simulation-only loop does not qualify. A research loop can involve a new experiment and therefore need not meet the same-counterpart requirement for the highest individualization category.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "uncertainty_broad_present",
+      "label": "Uncertainty broad present",
+      "description": "Whether any broad uncertainty category is present. Read independently of the narrow uncertainty and sensitivity-only fields.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "binary_assessment",
+        "values_used_in_this_column": [
+          "no",
+          "yes"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "member_record_ids",
+      "label": "Member record ids",
+      "description": "Identifiers of the bibliographic records consolidated into this system. Several papers or versions may describe one system.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "Recorded survey bibliographic identifier(s); multiple members are separated by semicolons.",
+        "examples": [
+          "V0001",
+          "D0001;D0002"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "entry_type",
+      "label": "Entry type",
+      "description": "Whether the coded unit is an implemented system, a platform or framework, or a distinct component.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "values": [
+          {
+            "value": "component",
+            "meaning": "A distinct model component is treated as the system being coded."
+          },
+          {
+            "value": "implemented system",
+            "meaning": "An implemented model or simulator is treated as the system being coded."
+          },
+          {
+            "value": "platform or framework",
+            "meaning": "A reusable platform or framework is treated as the system being coded."
+          }
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    },
+    {
+      "field": "abstract_based_scale",
+      "label": "Abstract based scale",
+      "description": "Scale recorded during title-and-abstract screening. Use scale for the final full-text classification.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "biological_scales",
+        "values_used_in_this_column": [
+          "cell",
+          "molecule and pathway",
+          "organ",
+          "organism",
+          "tissue and organoid",
+          "undetermined"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Describes the title-and-abstract assessment only. Final scientific analyses use the corresponding full-text field."
+    },
+    {
+      "field": "abstract_based_model_type",
+      "label": "Abstract based model type",
+      "description": "Model type recorded during title-and-abstract screening. Use model_type for the final full-text classification.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "model_types",
+        "values_used_in_this_column": [
+          "LLM agent orchestration",
+          "Not reported",
+          "data-driven",
+          "hybrid",
+          "mechanistic",
+          "undetermined"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Describes the title-and-abstract assessment only. Final scientific analyses use the corresponding full-text field."
+    },
+    {
+      "field": "abstract_based_individualization",
+      "label": "Abstract based individualization",
+      "description": "Individualization category recorded during title-and-abstract screening. Use individualization_level for the final full-text classification.",
+      "value_type": "single_select",
+      "allowed_values": {
+        "value_set": "individualization_categories",
+        "values_used_in_this_column": [
+          "Generic model without a specific physical counterpart",
+          "One-time counterpart-specific calibration",
+          "One-time counterpart-specific input without individual parameter fitting",
+          "Repeated updating from the same counterpart without demonstrated action on that counterpart",
+          "Repeated updating with executed model-guided action and return of post-action counterpart data"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "conditional_applicability": "Describes the title-and-abstract assessment only. Final scientific analyses use the corresponding full-text field."
+    },
+    {
+      "field": "representative_record_id",
+      "label": "Representative record id",
+      "description": "Identifier of the selected representative bibliographic member record, retained to help locate the system. Several articles may describe one system.",
+      "value_type": "identifier",
+      "allowed_values": {
+        "pattern": "Recorded survey bibliographic identifier(s); multiple members are separated by semicolons.",
+        "examples": [
+          "V0001",
+          "D0001"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists."
+    },
+    {
+      "field": "representative_record_title",
+      "label": "Representative record title",
+      "description": "Title in the selected representative bibliographic record.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Title in the representative bibliographic record"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists."
+    },
+    {
+      "field": "representative_record_doi",
+      "label": "Representative record doi",
+      "description": "DOI or DOIs in the selected representative bibliographic record.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "DOI string(s), normally beginning 10.; multiple identifiers may be separated by semicolons, or Not recorded.",
+        "examples": [
+          "10.xxxx/example",
+          "Not recorded"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists."
+    },
+    {
+      "field": "reference_article_url",
+      "label": "Article link for locating the system",
+      "description": "One recorded article link for locating the system. Where the records permit a choice, a journal or conference article is preferred to an arXiv preprint, then an OpenReview submission. This is a locating link, not an audit of the exact version historically read for coding.",
+      "value_type": "url",
+      "allowed_values": {
+        "pattern": "An https article-locating URL constructed from an identifier already in the records; no unrecorded version suffix is inferred.",
+        "examples": [
+          "https://doi.org/<recorded DOI>",
+          "https://arxiv.org/abs/<recorded arXiv identifier>"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings.",
+      "branch_notes": "Both branches can link to journal or conference papers, arXiv, or OpenReview; the publication platform does not define the biological-model branch.",
+      "selection_rule": "Among the identifiers recorded for that system, prefer a journal or conference DOI, then arXiv, then another preprint or platform DOI. PMC or PubMed records can be used when needed; OpenReview is the fallback. For equally ranked DOIs, retain their recorded order. This selects a locating link and does not claim a new search for every later version."
+    },
+    {
+      "field": "representative_record_pmid",
+      "label": "Representative record pmid",
+      "description": "PubMed identifier or identifiers in the selected representative record.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "PubMed numeric identifier(s); multiple identifiers may be separated by semicolons, or Not recorded.",
+        "examples": [
+          "Not recorded"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists.",
+      "branch_notes": "Applies to either branch when the representative paper has this identifier. A repository-specific identifier is not a biological-model branch classification."
+    },
+    {
+      "field": "representative_record_pmcid",
+      "label": "Representative record pmcid",
+      "description": "PubMed Central identifier or identifiers in the selected representative record.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "PMC followed by digits; multiple identifiers may be separated by semicolons, or Not recorded.",
+        "examples": [
+          "Not recorded"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists.",
+      "branch_notes": "Applies to either branch when the representative paper has this identifier. A repository-specific identifier is not a biological-model branch classification."
+    },
+    {
+      "field": "representative_record_arxiv_id",
+      "label": "Representative record arxiv id",
+      "description": "arXiv identifier or identifiers in the selected representative record.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "arXiv identifier, with an optional version suffix; multiple identifiers may be separated by semicolons, or Not recorded.",
+        "examples": [
+          "Not recorded"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists.",
+      "branch_notes": "Applies to either branch when the representative paper has this identifier. A repository-specific identifier is not a biological-model branch classification."
+    },
+    {
+      "field": "representative_record_openreview_id",
+      "label": "Representative record openreview id",
+      "description": "OpenReview submission identifier or identifiers in the selected representative record. The presence of this identifier does not mean the reference is a review comment.",
+      "value_type": "identifier_list",
+      "allowed_values": {
+        "pattern": "OpenReview submission identifier(s); multiple identifiers may be separated by semicolons, or Not recorded.",
+        "examples": [
+          "Not recorded"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists.",
+      "branch_notes": "Applies to either branch when the representative paper has this identifier. A repository-specific identifier is not a biological-model branch classification."
+    },
+    {
+      "field": "representative_record_year",
+      "label": "Representative record year",
+      "description": "Publication year in the selected representative record.",
+      "value_type": "integer",
+      "allowed_values": {
+        "pattern": "Four-digit publication year",
+        "examples": [
+          2024,
+          2025,
+          2026
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "Not recorded means this bibliographic item is absent from the table. It does not establish that no such identifier exists."
+    },
+    {
+      "field": "reading_source",
+      "label": "Reading source",
+      "description": "A general description of source material used for coding, such as online full text or a user-supplied PDF. This field is not an exact historical-version audit.",
+      "value_type": "text",
+      "allowed_values": {
+        "pattern": "Free text; preserve quantities, units, and source-specific distinctions.",
+        "examples": [
+          "Online full text",
+          "User-supplied PDF"
+        ]
+      },
+      "applies_to_branches": [
+        "virtual models",
+        "self-described digital twins"
+      ],
+      "applies_when": "All included systems.",
+      "missing_value_meaning": "See shared_value_meanings."
+    }
+  ],
+  "shared_value_sets": {
+    "biological_scales": {
+      "description": "Biological scale labels. Short molecule and tissue labels are retained aliases of the corresponding broader groups. Naming, modeled states, inputs, and endpoints remain distinct columns.",
+      "values": [
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        },
+        {
+          "value": "cell",
+          "meaning": "Individual cells, cell states, or cell populations without a separately modeled tissue state."
+        },
+        {
+          "value": "molecule and pathway",
+          "meaning": "Molecular entities, biochemical reactions, or pathway states."
+        },
+        {
+          "value": "organ",
+          "meaning": "The function or physical state of an organ."
+        },
+        {
+          "value": "organism",
+          "meaning": "An organism or coordinated whole-body system."
+        },
+        {
+          "value": "tissue and organoid",
+          "meaning": "Tissue or organoid states, including spatial structure or collective behavior modeled at that scale."
+        },
+        {
+          "value": "molecule",
+          "meaning": "Molecular scale; retained wording for the molecule and pathway group."
+        },
+        {
+          "value": "tissue",
+          "meaning": "Tissue scale; retained wording for the tissue and organoid group."
+        },
+        {
+          "value": "none",
+          "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+        },
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        },
+        {
+          "value": "undetermined",
+          "meaning": "The earlier abstract-stage record did not support a definite classification. This is retained only in abstract-based fields, not the final full-text classification."
+        }
+      ]
+    },
+    "model_types": {
+      "description": "Model construction families; the abstract-based column is an earlier assessment, not the final full-text classification.",
+      "values": [
+        {
+          "value": "LLM agent orchestration",
+          "meaning": "An LLM agent coordinates tools or submodels and passes information among them during operation."
+        },
+        {
+          "value": "data-driven",
+          "meaning": "A flexible predictive mapping or representation is learned from data."
+        },
+        {
+          "value": "hybrid",
+          "meaning": "Mechanistic and learned components both contribute to the model predictions or simulated states."
+        },
+        {
+          "value": "mechanistic",
+          "meaning": "Predictions follow equations or rules based on biological, physical, or chemical knowledge; fitting their parameters does not alone make the model data-driven."
+        },
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        },
+        {
+          "value": "undetermined",
+          "meaning": "The earlier abstract-stage record did not support a definite classification. This is retained only in abstract-based fields, not the final full-text classification."
+        }
+      ]
+    },
+    "evidence_categories": {
+      "description": "Evidence categories, from demonstration to prospective comparison. Highest task evidence and evidence for the principal claim are assessed separately.",
+      "values": [
+        {
+          "value": "Agreement with construction, calibration, or training data",
+          "meaning": "Agreement with data already used to construct, fit, calibrate, or train the model."
+        },
+        {
+          "value": "Held-out prediction under the same conditions",
+          "meaning": "Prediction of observations not used for fitting, under the same kinds of conditions."
+        },
+        {
+          "value": "No comparison with observed data or demonstration only",
+          "meaning": "A demonstration or simulation without comparison with observed data. Synthetic data from the same model family alone do not establish empirical validation."
+        },
+        {
+          "value": "Prospective wet-lab or clinical validation",
+          "meaning": "A prediction precedes a newly conducted experiment or new clinical measurement and is evaluated against its outcome. The separate strength field describes how clearly the source reports that timing and the experimental methods."
+        },
+        {
+          "value": "Retrospective prediction under unseen conditions",
+          "meaning": "Prediction for previously untested perturbations, times, contexts, or individuals using data that already existed."
+        }
+      ]
+    },
+    "individualization_categories": {
+      "description": "How a model is linked to one physical counterpart. The earlier abstract column retains its recorded wording; the full-text column is the final classification.",
+      "values": [
+        {
+          "value": "Generic model without a specific physical counterpart",
+          "meaning": "The model represents a class or a generic system, rather than a named individual object or sample."
+        },
+        {
+          "value": "One-time counterpart-specific calibration",
+          "meaning": "Data from a particular object or sample are used once to fit its parameters, geometry, or initial state."
+        },
+        {
+          "value": "One-time counterpart-specific input without individual parameter fitting",
+          "meaning": "A particular object or sample supplies input once, without fitting individual parameters."
+        },
+        {
+          "value": "Repeated updating from the same counterpart without a demonstrated complete feedback loop",
+          "meaning": "New measurements from the same counterpart enter at least twice and change model states or parameters, but a complete model-guided action followed by new data returning to the model is not demonstrated."
+        },
+        {
+          "value": "Repeated updating with executed model-guided action and return of post-action counterpart data",
+          "meaning": "Repeated updating is combined with an action actually taken on that same counterpart and subsequent data returned to the model."
+        },
+        {
+          "value": "Repeated updating from the same counterpart without demonstrated action on that counterpart",
+          "meaning": "Earlier abstract-screening wording for repeated updating without a demonstrated counterpart action. This historical label is not the final full-text classification."
+        }
+      ]
+    },
+    "process_categories": {
+      "description": "Biological process categories. The main process is not repeated as an additional process.",
+      "values": [
+        {
+          "value": "Behavior and neural control",
+          "meaning": "Behavior, motor control, or neural control."
+        },
+        {
+          "value": "Development",
+          "meaning": "Developmental changes, differentiation, growth, or morphogenesis."
+        },
+        {
+          "value": "Disease progression and treatment response",
+          "meaning": "Disease evolution or response to treatment, including non-drug treatment."
+        },
+        {
+          "value": "Metabolism",
+          "meaning": "Metabolic reactions, fluxes, or metabolic states."
+        },
+        {
+          "value": "Physical and physiological function",
+          "meaning": "Physical or physiological processes such as electrophysiology, mechanics, transport, or fluid flow."
+        },
+        {
+          "value": "Regulation and perturbation response",
+          "meaning": "Regulatory behavior or response to a genetic, chemical, or other perturbation."
+        },
+        {
+          "value": "State representation and annotation",
+          "meaning": "Representing, identifying, or annotating biological states without a required dynamical prediction."
+        },
+        {
+          "value": "Tissue homeostasis and repair",
+          "meaning": "Maintenance, repair, or regeneration of tissue."
+        },
+        {
+          "value": "none",
+          "meaning": "An explicitly empty set or absent item under the definition of this particular field; consult its description."
+        }
+      ]
+    },
+    "construction_and_test_sources": {
+      "description": "Biological preparations, clinical sources, synthetic data, or a physical phantom used for construction or testing. These are sources of evidence, not modeled scales.",
+      "values": [
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        },
+        {
+          "value": "cell lines",
+          "meaning": "Established cell lines provide construction or test material."
+        },
+        {
+          "value": "clinical measurements in patients",
+          "meaning": "Measurements are obtained from human patients."
+        },
+        {
+          "value": "ex vivo tissue",
+          "meaning": "Excised tissue or organs are studied outside the organism."
+        },
+        {
+          "value": "in vivo",
+          "meaning": "Living animals or other living organisms are studied."
+        },
+        {
+          "value": "not applicable (sequence or structure data)",
+          "meaning": "The data are sequences or structures for which the specimen-system categories do not apply."
+        },
+        {
+          "value": "organoids",
+          "meaning": "Organoid cultures provide material."
+        },
+        {
+          "value": "organs-on-chips",
+          "meaning": "Microengineered organ-on-chip systems provide material."
+        },
+        {
+          "value": "primary cells",
+          "meaning": "Cells obtained directly from biological tissue provide material."
+        },
+        {
+          "value": "synthetic data only",
+          "meaning": "Only simulated or synthetic data are used in this part of the assessment."
+        },
+        {
+          "value": "nonbiological physical phantom",
+          "meaning": "A manufactured physical phantom is used as a test object; it is not a living biological preparation."
+        }
+      ]
+    },
+    "scale_claim_status": {
+      "description": "Whether authors claim present or future coverage of a scale. A claim does not establish an actually modeled biological state.",
+      "values": [
+        {
+          "value": "Not recorded",
+          "meaning": "No value or detail was entered in this table for this field. Do not infer that the article lacks the information."
+        },
+        {
+          "value": "current",
+          "meaning": "The authors claim this scale is covered by the present system; this claim alone does not establish an implemented state at that scale."
+        },
+        {
+          "value": "envisioned",
+          "meaning": "The authors describe this scale as a proposed or future capability."
+        }
+      ]
+    },
+    "credibility_assessment": {
+      "description": "Use the column definition to identify the assessed practice. Unqualified yes is documented support; qualified yes labels retain weaker claims. Applicability depends on model family, not survey branch.",
+      "values": [
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        },
+        {
+          "value": "no",
+          "meaning": "A negative coding decision for the stated criterion in the material assessed. It is not a missing value."
+        },
+        {
+          "value": "yes",
+          "meaning": "The stated criterion is met in the coding assessment."
+        },
+        {
+          "value": "yes (claim only)",
+          "meaning": "The authors claim that the practice is used, but supporting results are not documented in the assessed material."
+        },
+        {
+          "value": "yes (qualitative only)",
+          "meaning": "The authors describe supporting evidence qualitatively, without the required quantitative demonstration."
+        },
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        }
+      ]
+    },
+    "interface_test_result": {
+      "description": "Test evidence for one recorded cross-scale link; not a coding-completeness category.",
+      "values": [
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        },
+        {
+          "value": "no",
+          "meaning": "No qualifying independent interface test is reported. Calibration or training agreement alone does not qualify."
+        },
+        {
+          "value": "partial",
+          "meaning": "Some relevant test evidence is reported, but not all quantitative, comparison-design, or data-independence requirements of the strict test are established."
+        },
+        {
+          "value": "yes",
+          "meaning": "The interface has a targeted quantitative test with independent observations not used for fitting, tuning, or selection, and the required measurement or comparison design."
+        }
+      ]
+    },
+    "binary_assessment": {
+      "description": "Yes and no refer to the specific criterion described by the column. Missing-value labels retain their separate meanings.",
+      "values": [
+        {
+          "value": "no",
+          "meaning": "A negative coding decision for the stated criterion in the material assessed. It is not a missing value."
+        },
+        {
+          "value": "yes",
+          "meaning": "The stated criterion is met in the coding assessment."
+        },
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        },
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        }
+      ]
+    },
+    "comparison_result": {
+      "description": "Direction of the reported comparison against the named comparator; absence of a comparison is not poor performance.",
+      "values": [
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        },
+        {
+          "value": "better",
+          "meaning": "The system performs better than the specified comparator on the reported comparison."
+        },
+        {
+          "value": "comparable",
+          "meaning": "The reported performance is similar to the comparator."
+        },
+        {
+          "value": "mixed",
+          "meaning": "Comparisons differ across endpoints, settings, or methods; there is no single direction of advantage."
+        },
+        {
+          "value": "not stated in the main text",
+          "meaning": "The main text does not state a comparative result."
+        },
+        {
+          "value": "worse",
+          "meaning": "The system performs worse than the comparator on the reported comparison."
+        }
+      ]
+    },
+    "public_availability": {
+      "description": "Reported public availability of the item named by the column. Public availability is distinct from access on request.",
+      "values": [
+        {
+          "value": "Not applicable",
+          "meaning": "The question does not apply in this case, or this numbered list slot is unused. The column description identifies which meaning applies."
+        },
+        {
+          "value": "Not reported",
+          "meaning": "The article does not provide the information needed for this field. This does not mean no."
+        },
+        {
+          "value": "no",
+          "meaning": "A negative coding decision for the stated criterion in the material assessed. It is not a missing value."
+        },
+        {
+          "value": "partial",
+          "meaning": "Some relevant material or evidence is available, but the complete stated requirement is not met."
+        },
+        {
+          "value": "yes",
+          "meaning": "The stated criterion is met in the coding assessment."
+        }
+      ]
+    },
+    "cross_scale_link_format": {
+      "description": "Four pipe-separated components describe one link; the slot number is not a biological scale-pair code.",
+      "pattern": "mechanism|end types|direction|source scale→target scale; or Not applicable for an unused slot.",
+      "components": {
+        "mechanism": [
+          {
+            "value": "Claim only without an implemented interface",
+            "meaning": "A cross-scale connection is claimed without a demonstrated implemented interface."
+          },
+          {
+            "value": "Parameter or boundary-condition passing",
+            "meaning": "One component supplies parameters or boundary conditions to another."
+          },
+          {
+            "value": "Representation reuse",
+            "meaning": "A representation produced at one scale is reused by another component."
+          },
+          {
+            "value": "Joint training or joint solution",
+            "meaning": "Components at different modeled scales are trained or solved together."
+          },
+          {
+            "value": "LLM agent orchestration",
+            "meaning": "An LLM agent coordinates information exchange among model components."
+          }
+        ],
+        "end_types": [
+          {
+            "value": "model-to-model",
+            "meaning": "Both ends compute their own biological states."
+          },
+          {
+            "value": "measurement-to-model",
+            "meaning": "Observed data enter a model; the data source is not necessarily a modeled scale."
+          },
+          {
+            "value": "model-to-endpoint",
+            "meaning": "A model output is compared with an endpoint that is not necessarily modeled."
+          }
+        ],
+        "direction": [
+          {
+            "value": "bottom-up",
+            "meaning": "Information passes from a lower biological scale to a higher one."
+          },
+          {
+            "value": "top-down",
+            "meaning": "Information passes from a higher biological scale to a lower one."
+          },
+          {
+            "value": "bidirectional",
+            "meaning": "Information passes in both directions."
+          }
+        ],
+        "source_and_target_scales": [
+          {
+            "value": "molecule and pathway",
+            "meaning": "Molecular entities, biochemical reactions, or pathway states."
+          },
+          {
+            "value": "molecule",
+            "meaning": "Molecular scale; retained wording for the molecule and pathway group."
+          },
+          {
+            "value": "cell",
+            "meaning": "Individual cells, cell states, or cell populations without a separately modeled tissue state."
+          },
+          {
+            "value": "tissue and organoid",
+            "meaning": "Tissue or organoid states, including spatial structure or collective behavior modeled at that scale."
+          },
+          {
+            "value": "tissue",
+            "meaning": "Tissue scale; retained wording for the tissue and organoid group."
+          },
+          {
+            "value": "organ",
+            "meaning": "The function or physical state of an organ."
+          },
+          {
+            "value": "organism",
+            "meaning": "An organism or coordinated whole-body system."
+          }
+        ]
+      },
+      "examples": [
+        "Parameter or boundary-condition passing|model-to-model|bottom-up|cell→organ",
+        "Not applicable"
+      ]
+    },
+    "author_declared_omission_text": {
+      "description": "Free text paraphrasing an omission explicitly stated by the authors, or Not applicable for an unused numbered slot.",
+      "pattern": "An English paraphrase of an author-declared omission, or Not applicable for an unused slot.",
+      "examples": [
+        "An omitted biological process described by the authors",
+        "Not applicable"
+      ]
+    }
+  },
+  "value_matching": {
+    "case_insensitive_values": [
+      "Not applicable",
+      "Not reported",
+      "Not recorded"
+    ],
+    "scope": "Compare these conventional missing labels without regard to capitalization, including whole tokens within semicolon-separated multiselect strings. Other scientific values and free text are not normalized by this rule."
+  },
+  "counterpart_loop_branch_scope": "Counterpart data flows are meaningful for both branches. Generic virtual models can carry Not applicable loop fields under the coding scope, while generic twin-labeled systems can receive explicit data-flow descriptions. Such Not applicable entries are not observed absences of counterpart data or action."
+}
