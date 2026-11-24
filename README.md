@@ -1,11 +1,11 @@
 # VL-Survey
 
-This repository provides the complete system coding table (Data S04) for **Virtual Life in the Age of AI: A Unifying Framework and Structured Survey across Biological Scales**.
+The complete English system coding table for the survey is available in [Complete_system_coding.xlsx](Complete_system_coding.xlsx).
 
-**[Download the Excel coding table](Complete_system_coding.xlsx?raw=true).**
+The workbook contains one worksheet with **564 systems and 131 fields**, with one system per row: 238 virtual models and 326 self-described digital twins. Category codes are expanded into their full English labels.
 
-The workbook contains **568 systems and 131 fields** in one worksheet, with one system per row: **239 virtual models** and **329 self-described digital twins**. Several related articles can belong to one system. Searches were frozen on **18 November 2026**; coding describes the article versions reviewed.
+`Not reported` means the article did not provide the information. `Not applicable` means the field does not apply to that system. These values should not be interpreted as `no`.
 
-Entries are in English, with category codes expanded into their meanings. Semicolons generally separate multiple selections. Empty cells, no, not reported, undetermined, and not applicable remain distinct.
+The `abstract_based_*` fields preserve information from the earlier title-and-abstract screening stage. They are historical screening fields and have not been rewritten as full-text conclusions. Use the final scale, model type, individualization, evidence, and other coding fields for the full-text assessment.
 
-`highest_evidence_level` concerns the strongest reported task; `core_claim_evidence_level` concerns the paper's central claim. The digital-twin branch records the authors' terminology; an executed counterpart loop is assessed separately through `individualization_level`. Bibliographic fields identify the source articles.
+The Supplementary Note accompanying the article explains the search strategy, screening, and coding rules.
